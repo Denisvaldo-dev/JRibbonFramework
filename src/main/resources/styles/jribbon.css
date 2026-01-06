@@ -1,0 +1,190 @@
+/* Container Geral */
+.ribbon {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-background-color: white;
+}
+
+.ribbon-root {
+    -fx-border-color: #d6d6d6;
+    -fx-border-width: 0 0 1 0;
+}
+
+/* Header (Barra de Títulos) */
+.ribbon-header {
+    -fx-background-color: #f3f3f3;
+    -fx-padding: 5 5 0 5;
+    -fx-spacing: 2;
+}
+
+/* Body (Área de Conteúdo) */
+.ribbon-body {
+    -fx-background-color: #f3f3f3;
+    -fx-min-height: 100px;
+    -fx-padding: 10;
+    -fx-border-color: #e1e1e1;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* Botões das Abas */
+.ribbon-tab-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2d2d2d;
+    -fx-font-size: 13px;
+    -fx-padding: 8 16 8 16;
+    -fx-background-radius: 4 4 0 0;
+    -fx-cursor: hand;
+}
+
+.ribbon-tab-button:hover {
+    -fx-background-color: #e0e0e0;
+}
+
+.ribbon-tab-button:selected {
+    -fx-background-color: white;
+    -fx-text-fill: #2b579a; /* Azul Clássico */
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 2, 0, 0, 1);
+}
+/* --- Ribbon Group --- */
+.ribbon-group-root {
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 1 0 0; /* Borda apenas na direita para separar grupos */
+    -fx-padding: 0 4 0 4;
+    -fx-alignment: center;
+}
+
+.ribbon-group-content {
+    -fx-spacing: 5;
+    -fx-alignment: center-left;
+    -fx-min-height: 60px;
+}
+
+.ribbon-group-title {
+    -fx-font-size: 10px;
+    -fx-text-fill: #888;
+    -fx-alignment: center;
+    -fx-padding: 2 0 0 0;
+}
+
+/* --- Ribbon Button Base --- */
+.ribbon-button {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-padding: 0;
+}
+
+.ribbon-button:hover {
+    -fx-background-color: #d5e1f2; /* Azul bem claro no hover */
+    -fx-background-radius: 3;
+    -fx-border-color: #a3bde3;
+    -fx-border-radius: 3;
+}
+
+.ribbon-button:pressed {
+    -fx-background-color: #a3bde3;
+}
+
+.ribbon-button-label {
+    -fx-text-fill: #333;
+    -fx-font-size: 12px;
+}
+
+/* --- Variantes de Tamanho --- */
+
+/* TOP (Grande) */
+.ribbon-button-top {
+    -fx-padding: 5 10 5 10;
+    -fx-min-width: 50px;
+    -fx-min-height: 55px;
+    -fx-alignment: center;
+}
+
+/* MEDIUM (Pequeno) */
+.ribbon-button-medium {
+    -fx-padding: 3 8 3 8;
+    -fx-alignment: center-left;
+}
+
+/* --- Ribbon Column --- */
+.ribbon-column {
+    -fx-alignment: center;
+}
+
+.ribbon-column-container {
+    -fx-alignment: center-left;
+    -fx-padding: 0 2 0 2;
+}
+/* --- Ribbon Separator (Refinado) --- */
+.ribbon-separator {
+    /* Espaço em branco ao redor da linha (esquerda/direita) */
+    -fx-padding: 0 4 0 4;
+    -fx-alignment: center;
+}
+/* --- Ribbon Separator (Refinado) --- */
+.ribbon-separator {
+    /* Espaço em branco ao redor da linha (esquerda/direita) */
+    -fx-padding: 0 4 0 4;
+    -fx-alignment: center;
+}
+
+.ribbon-separator-line {
+    /* Força bruta para largura de exato 1 pixel */
+    -fx-min-width: 1px;
+    -fx-pref-width: 1px;
+    -fx-max-width: 1px;
+
+    /* Cor cinza bem claro e Flat (sem efeito 3D) */
+    -fx-background-color: #d1d1d1;
+
+    /* Margem vertical: 8px de respiro em cima e embaixo */
+    -fx-background-insets: 8 0 8 0;
+
+    /* Remove qualquer borda ou padding padrão */
+    -fx-border-width: 0;
+    -fx-padding: 0;
+}
+
+/* IMPORTANTE: Mata a sub-estrutura interna do JavaFX que causa o efeito 3D */
+.ribbon-separator-line .line {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+/* --- Botão de Minimizar --- */
+.ribbon-minimize-button {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-min-width: 30px;
+    -fx-max-height: 25px;
+    -fx-alignment: center;
+    -fx-padding: 5;
+}
+
+.ribbon-minimize-button:hover {
+    -fx-background-color: #e1e1e1;
+}
+
+/* Criando o Ícone (Seta) usando SVG Path */
+.ribbon-minimize-button .text {
+    visibility: hidden; /* Esconde texto se houver */
+}
+
+/* Shape padrão (Seta para CIMA ^ indicating 'Click to collapse') */
+.ribbon-minimize-button {
+    -fx-shape: "M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"; /* Chevron Up */
+    -fx-scale-shape: true;
+    -fx-background-color: #666; /* Cor do ícone */
+    -fx-min-width: 12px;
+    -fx-min-height: 12px;
+    -fx-max-width: 12px;
+    -fx-max-height: 12px;
+    -fx-background-insets: 8; /* Margem interna para o botão não ficar enorme */
+}
+
+.ribbon-minimize-button:hover {
+    -fx-background-color: #333; /* Ícone mais escuro no hover */
+}
+
+/* Shape quando minimizado (Seta para BAIXO v indicating 'Click to expand') */
+.ribbon-minimize-button:minimized {
+    -fx-shape: "M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"; /* Chevron Down */
+}
